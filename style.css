@@ -22,9 +22,158 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url('./images/bg-intro-mobile.png') center no-repeat var(--red);
+    background-size: contain;
+}
+
+main {
+    width: 100%;
+    height: 95%;
+}
+
+.info-box {
+    width: 90%;
+    margin: 8.5rem auto 0;
+    text-align: center;
+    color: white;
+}
+
+.info-box h1 {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.info-box p {
+    width: 95%;
+    margin: 2rem auto 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.form-box {
+    width: 90%;
+    margin: 5rem auto 0;
+}
+
+.offer-text {
+    width: 100%;
+    padding: 1.5rem 5rem;
+    margin-bottom: 3rem;
+    border: solid 0.1rem transparent;
+    border-radius: 1rem;
+    box-shadow: 0px 0.8rem 0px 0px rgba(0,0,0,0.25);
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: white;
+    background-color: var(--blue);
+}
+
+.offer-text span {
+    font-weight: 600;
+}
+
+.form-container {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 2.5rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0px 0.8rem 0px 0px rgba(0,0,0,0.25);
+}
+
+#f-name {
+    margin-top: 2.5rem;
+}
+
+.form-container label {
+    width: 90%;
+    height: 5rem;
+    position: relative;
+}
+
+.form-container input {
+    width: 90%;
+    height: 5rem;
+    margin: 1.5rem 0 0 5%;
+    border: solid 0.1rem var(--grayish-blue);
+    border-radius: 0.5rem;
+    padding-left: 5%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    outline-color: var(--grayish-blue);
+}
+
+.icon {
+    position: absolute;
+    width: 2.4rem;
+    top: -0.5rem;
+    bottom: 0;
+    left: 28rem;
+    right: 0;
+}
+
+.error-msg {
+    width: 90%;
+    margin: 0.5rem auto 0;
+    text-align: right;
+    color: var(--red);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.form-container input::placeholder {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button {
+    width: 90%;
+    height: 5.5rem;
+    margin: 1.5rem 0 0 5%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    background-color: hsla(154, 59%, 51%, 0.9);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0.8rem 0px 0px var(--green);
+}
+
+.button:hover {
+    background-color: hsla(154, 59%, 51%, 0.75);
+}
+
+.agree-terms-text {
+    width: 80%;
+    margin: 2rem auto 0;
+    text-align: center;
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.agree-terms-text span {
+    color: var(--red);
+    font-weight: 700;
+}
+
 footer { 
+    width: 100%;
+    height: 5%;
     font-size: 1.1rem; 
-    text-align: center; 
+    text-align: center;
+    margin-top: 7%;
 }
 
 footer a { 
