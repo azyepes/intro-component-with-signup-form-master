@@ -25,7 +25,7 @@ button.addEventListener('click', () => {
 
     let arrayLabels = [labelFirstName, labelLastName, labelEmail, labelPassword]
 
-    console.log(firstName, lastName, email, passwrod, arrayInputs);
+    console.log(firstName, lastName, email, password, arrayInputs);
 
     validateFields(arrayInputs, arrayLabels)
     
@@ -34,60 +34,73 @@ button.addEventListener('click', () => {
 function validateFields(inputs, labels) {
     
     for (let i = 0; i < inputs.length; i++) {
-        
+
+        // console.log(labels[0].childNodes);
+        if (labels[i].childNodes.length >= 5) {
+            
+            for (let j = 3; j < labels[i].childNodes.length; j++) {
+                console.log(j);
+                console.log(labels[i].childNodes[j], j);
+                labels[i].removeChild(labels[i].childNodes[j])
+                
+            }
+            
+            // labels[i].removeChild(labels[i].childNodes[3])
+        }
+
+
         if (inputs[i] ==='') {
+            
             let img = document.createElement('img')
             img.src = './images/icon-error.svg'
-            img.className = 'icon-error'
+            img.className = 'icon'
 
             let p = document.createElement('p')
             p.className = 'error-msg'
-            p.textContent `${fields[i]} cannot be empty`
+            p.textContent = `${fields[i]} cannot be empty`
 
             labels[i].append(img, p)
-
+            // console.log(labels[0].childNodes.length);
         } else {
 
-            if (condition) {
-                
+            if (i === 2) {
+                validateEmail(inputs[i], labels[i])
             } else {
-                
-            }
-            let img = document.createElement('img')
-            img.src = './images/check.png'
-            img.className = 'icon-error'
+                let img = document.createElement('img')
+                img.src = './images/check.png'
+                img.className = 'icon'
 
-            labels[i].append(img)
+                labels[i].append(img)
+            }
+
+            
         }
     }
 }
 
-function validateEmail(value) {
+function validateEmail(value, array) {
     let regExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     if (regExp.test(value)) {
         console.log('VALID');
-        iconValid.classList.remove('hiden')
-        error.textContent = `This email is valid.`
-        iconError.classList.add('hiden')
-        email.classList.remove('invalid')
-        submit.classList.remove('invalid-button')
+        let img = document.createElement('img')
+        img.src = './images/check.png'
+        img.className = 'icon'
 
-    } else if (value === '') {
-
-        iconError.classList.remove('hiden')
-        error.textContent = `Email is required.`
-        iconValid.classList.add('hiden')
-        email.classList.add('invalid')
-        submit.classList.add('invalid-button')
+        array.append(img)
 
     }
+
     else {
         console.log('INVALID');
-        iconError.classList.remove('hiden')
-        error.textContent = `Please provide a valid email.`
-        iconValid.classList.add('hiden')
-        email.classList.add('invalid')
-        submit.classList.add('invalid-button')
+        let img = document.createElement('img')
+        img.src = './images/icon-error.svg'
+        img.className = 'icon'
+
+        let p = document.createElement('p')
+        p.className = 'error-msg'
+        p.textContent = `Looks like this is not an email`
+
+        array.append(img, p)
     }
 }
