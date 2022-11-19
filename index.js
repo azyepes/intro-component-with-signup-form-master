@@ -11,10 +11,10 @@ let button = $('#button')
 
 button.addEventListener('click', () => {
 
-    let firstName = $('#f-name').value
-    let lastName = $('#l-name').value
-    let email = $('#email').value
-    let password = $('#password').value
+    let firstName = $('#f-name')
+    let lastName = $('#l-name')
+    let email = $('#email')
+    let password = $('#password')
 
     let arrayInputs = [firstName, lastName, email, password]
 
@@ -25,8 +25,6 @@ button.addEventListener('click', () => {
 
     let arrayLabels = [labelFirstName, labelLastName, labelEmail, labelPassword]
 
-    console.log(firstName, lastName, email, password, arrayInputs);
-
     validateFields(arrayInputs, arrayLabels)
     
 })
@@ -35,21 +33,20 @@ function validateFields(inputs, labels) {
     
     for (let i = 0; i < inputs.length; i++) {
 
-        // console.log(labels[0].childNodes);
-        if (labels[i].childNodes.length >= 5) {
-            
-            for (let j = 3; j < labels[i].childNodes.length; j++) {
-                console.log(j);
-                console.log(labels[i].childNodes[j], j);
-                labels[i].removeChild(labels[i].childNodes[j])
+        let myLabelArray = Array.from(labels[i].childNodes)
+
+        if (myLabelArray.length > 3) {
+
+            for (let j = 3; j < myLabelArray.length; j++) {
+
+                labels[i].removeChild(myLabelArray[j])
                 
             }
             
-            // labels[i].removeChild(labels[i].childNodes[3])
         }
 
 
-        if (inputs[i] ==='') {
+        if (inputs[i].value ==='') {
             
             let img = document.createElement('img')
             img.src = './images/icon-error.svg'
@@ -60,17 +57,22 @@ function validateFields(inputs, labels) {
             p.textContent = `${fields[i]} cannot be empty`
 
             labels[i].append(img, p)
-            // console.log(labels[0].childNodes.length);
+            inputs[i].setAttribute("style", "border: solid 0.2rem hsl(0, 100%, 74%);")
+
         } else {
 
             if (i === 2) {
+                
                 validateEmail(inputs[i], labels[i])
             } else {
+
+                console.log(inputs[i].value, i);
                 let img = document.createElement('img')
                 img.src = './images/check.png'
                 img.className = 'icon'
 
                 labels[i].append(img)
+                inputs[i].setAttribute("style", "")
             }
 
             
@@ -81,18 +83,18 @@ function validateFields(inputs, labels) {
 function validateEmail(value, array) {
     let regExp = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-    if (regExp.test(value)) {
-        console.log('VALID');
+    if (regExp.test(value.value)) {
+
         let img = document.createElement('img')
         img.src = './images/check.png'
         img.className = 'icon'
 
         array.append(img)
-
+        value.setAttribute("style", "")
     }
 
     else {
-        console.log('INVALID');
+
         let img = document.createElement('img')
         img.src = './images/icon-error.svg'
         img.className = 'icon'
@@ -102,5 +104,6 @@ function validateEmail(value, array) {
         p.textContent = `Looks like this is not an email`
 
         array.append(img, p)
+        value.setAttribute("style", "border: solid 0.2rem hsl(0, 100%, 74%);") 
     }
 }
