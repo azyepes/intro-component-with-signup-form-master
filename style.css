@@ -173,7 +173,6 @@ footer {
     margin: 7% auto 0;
     font-size: 1.1rem; 
     text-align: center;
-    /* margin-top: 7%; */
 }
 
 footer a { 
@@ -195,7 +194,6 @@ footer a {
 
     .info-box {
         width: 42%;
-        /* margin-left: 15rem; */
         text-align: left;
     }
 
@@ -213,7 +211,6 @@ footer a {
     
     .form-box {
         width: 42%;
-        /* margin-right: 15rem; */
     }
 
     footer {

@@ -67,7 +67,6 @@ function validateFields(inputs, labels) {
                 validateEmail(inputs[i], labels[i])
             } else {
 
-                console.log(inputs[i].value, i);
                 let img = document.createElement('img')
                 img.src = './images/check.png'
                 img.className = 'icon'
