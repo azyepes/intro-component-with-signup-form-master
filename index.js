@@ -47,7 +47,7 @@ function validateFields(inputs, labels) {
 
 
         if (inputs[i].value ==='') {
-            
+
             let img = document.createElement('img')
             img.src = './images/icon-error.svg'
             img.className = 'icon'
@@ -58,6 +58,7 @@ function validateFields(inputs, labels) {
 
             labels[i].append(img, p)
             inputs[i].setAttribute("style", "border: solid 0.2rem hsl(0, 100%, 74%);")
+            inputs[i].removeAttribute("placeholder")
 
         } else {
 
@@ -104,6 +105,7 @@ function validateEmail(value, array) {
         p.textContent = `Looks like this is not an email`
 
         array.append(img, p)
-        value.setAttribute("style", "border: solid 0.2rem hsl(0, 100%, 74%);") 
+        value.setAttribute("style", "border: solid 0.2rem hsl(0, 100%, 74%); color: hsl(0, 100%, 74%)")
+        value.setAttribute("placeholder", `${value.value}`)
     }
 }
